@@ -10,7 +10,7 @@ export class Satellite {
     type: string,
     launchDate: string,
     orbitType: string,
-    operational: boolean
+    operational: boolean,
     ) {
 
       this.name = name;

@@ -16,6 +16,10 @@ min-width: 300px;
 background: #dad8d8;
 }
 
+tr:nth-child(even) {
+  background-color: white;
+}
+
 .header-row {
   background: #34495E;
   color: #fff

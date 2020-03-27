@@ -20,15 +20,15 @@ export class AppComponent {
 
         let fetchedSatellites = data.satellites;
 
-          for (let satellite of fetchedSatellites) {
-            this.sourceList.push(new Satellite(
-              satellite.name,
-              satellite.type,
-              satellite.launchDate,
-              satellite.orbitType,
-              satellite.operational
-            ))
-          }
+        for (let satellite of fetchedSatellites) {
+          this.sourceList.push(new Satellite(
+            satellite.name,
+            satellite.type,
+            satellite.launchDate,
+            satellite.orbitType,
+            satellite.operational,
+          ))
+        }
         this.displayList = this.sourceList.slice(0);
       }.bind(this));
     }.bind(this));
@@ -39,8 +39,14 @@ export class AppComponent {
     searchTerm = searchTerm.toLowerCase();
     for(let i=0; i < this.sourceList.length; i++) {
        let name = this.sourceList[i].name.toLowerCase();
+       let type = this.sourceList[i].type.toLowerCase();
+       let orbitType = this.sourceList[i].orbitType.toLowerCase();
        if (name.indexOf(searchTerm) >= 0) {
           matchingSatellites.push(this.sourceList[i]);
+       }else if (type.indexOf(searchTerm) >= 0) {
+         matchingSatellites.push(this.sourceList[i]);
+       }else if (orbitType.indexOf(searchTerm) >= 0) {
+         matchingSatellites.push(this.sourceList[i]);
        }
     }
     // assign this.displayList to be the the array of matching satellites
